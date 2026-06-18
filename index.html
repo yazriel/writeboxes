@@ -17,10 +17,12 @@ function updateFileButtons() {
   if (!window.__getFileList) return
   window.__getFileList(function(files) {
     var curInfo = window.WriteboxFileStatus && window.WriteboxFileStatus.get()
-    if (curInfo && curInfo.file && curInfo.file.id && curInfo.file.name) {
+    if (curInfo && curInfo.file && curInfo.file.id) {
       var exists = files.some(function(f) { return f.fileId === curInfo.file.id })
       if (!exists) {
-        files.unshift({index: -1, fileId: curInfo.file.id, name: curInfo.file.name})
+        var curContent = localStorage.getItem('contents') || ''
+        var curName = curInfo.file.name || curContent.replace(/^\s+/, '').substr(0, 30) || '<No Contents>'
+        files.unshift({index: -1, fileId: curInfo.file.id, name: curName})
       }
     }
     var container = document.getElementById('file-buttons')

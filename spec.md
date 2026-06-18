@@ -81,6 +81,8 @@ the Chrome Web Store.
 - **Statistics removed** — Removed from Settings panel, keyboard shortcut (Ctrl+Shift+S), and shortcut dialog; statistics bar always hidden
 - **Auto Save removed** — Removed toggle from Settings panel; removed `toggleAutoSave` and `toggleShowStatistics` store functions; removed from default settings
 - **File shortcut buttons fixed** — Buttons now resolve file index at click time by matching file ID against the current pool. Previously buttons stored a static array index which became stale whenever `getFile()` spliced the opened file out of the pool. Buttons could open wrong files, point out of bounds, or disappear. Each button now carries a `fileId`; on click it re-reads the pool via `__getFileList`, finds the matching ID, and passes the current index to `__openFile`.
+- **Current file button added** — The currently open file now appears as a shortcut button (bold) even though it has been removed from the pool. Name is derived from content (local files have empty `file.name`).
+- **Files moved to root** — Renamed and moved from `assets/` to project root: `index.js`, `style.css`, `NotoSans-Light.ttf`
 - **Renamed to Writeboxes** — Title, About dialog, and PWA manifest all use "Writeboxes" to distinguish from the original Writebox and avoid conflicts when both are installed
 - **PWA support** — Added `manifest.json`, `sw.js` (service worker), and icon generation script. App is installable on ChromeOS via localhost without code signing or SSL
 
@@ -121,6 +123,7 @@ This is safe because:
 
 - Renamed app to **Writeboxes** (avoids conflict with original Writebox)
 - Removed cloud features: PostHog, auto-save, save button, save-as, statistics, startup API calls
-- Added **file shortcut buttons** in toolbar (each local file gets a clickable button; index resolved at click time by file ID)
+- Added **file shortcut buttons** in toolbar (each local file gets a clickable button; index resolved at click time by file ID; current file shown in bold)
 - Added **Backup & Restore** to overflow menu (JSON export/import; reads localStorage directly)
 - Added **PWA support** (`manifest.json`, `sw.js`, icons) for installation on ChromeOS and other platforms
+- Moved assets to project root (`index.js`, `style.css`, `NotoSans-Light.ttf`)
