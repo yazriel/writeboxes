@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Writeboxes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple and distraction-free text editor">
+    <link rel="shortcut icon" href="/icon/favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" crossorigin href="/style.css">
+  </head>
+  <body style="background: #fff; margin: 0;">
+    <div id="app-container" style="height: 100%; background: #fff;"/>
+    <script type="module" crossorigin src="/index.js"></script>
+    <script>
+function updateFileButtons() {
+  if (!window.__getFileList) return
+  window.__getFileList(function(files) {
+    var curInfo = window.WriteboxFileStatus && window.WriteboxFileStatus.get()
+    if (curInfo && curInfo.file && curInfo.file.id && curInfo.file.name) {
+      var exists = files.some(function(f) { return f.fileId === curInfo.file.id })
+      if (!exists) {
+        files.unshift({index: -1, fileId: curInfo.file.id, name: curInfo.file.name})
+      }
+    }
+    var container = document.getElementById('file-buttons')
+    if (!container) {
+      container = document.createElement('div')
+      container.id = 'file-buttons'
+      container.style.cssText = 'display:inline-flex;gap:4px;margin-right:8px'
+    }
+    container.innerHTML = ''
+    files.forEach(function(f) {
+      var btn = document.createElement('button')
+      btn.textContent = f.name
+      btn.title = f.name
+      var isCurrent = f.index === -1
+      btn.style.cssText = 'padding:2px 8px;cursor:pointer;background:none;border:1px solid currentColor;border-radius:4px;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px' + (isCurrent ? ';font-weight:bold' : '')
+      btn.addEventListener('click', function(fileId, isCur) {
+        return function() {
+          if (isCur) return
+          window.__getFileList(function(currentFiles) {
+            for (var i = 0; i < currentFiles.length; i++) {
+              if (currentFiles[i].fileId === fileId) {
+                window.__openFile(currentFiles[i].index)
+                break
+              }
+            }
+          })
+        }
+      }(f.fileId, isCurrent))
+      container.appendChild(btn)
+    })
+    var menuBtns = document.getElementById('menu-buttons')
+    if (menuBtns) {
+      var existing = document.getElementById('file-buttons')
+      if (!existing) menuBtns.insertBefore(container, menuBtns.firstChild)
+    }
+  })
+}
+window.__refreshFileButtons = updateFileButtons
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(updateFileButtons, 500)
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+  }
+})
+    </script>
+  </body>
+</html>
