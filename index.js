@@ -33834,8 +33834,8 @@ You need to delete some text data from [Open] - [Local] menu.`,
           children: [
             E.jsxs(h0, {
               children: [
-                E.jsx('a', { href: 'https://writeboxes.com', target: '_blank', children: 'Writeboxes' }),
-                ' web text editor. Modified by Y.A. from original Writebox app. Added backup/restore. Local storage only. No APIs or network drive. Added top bar file shortcut buttons. Vibe Coded opencode/MiMo2.5/YOLO.',
+                E.jsx('a', { href: 'https://yazriel.github.io/writeboxes/', target: '_blank', children: 'Writeboxes' }),
+                ' web text editor. Modified by Y.A. from original Writebox app. Added backup/restore. Local storage only. No APIs or network drive. Added top bar file shortcut buttons. Vibe coded opencode/MiMo2.5/YOLO.',
               ],
             }),
             E.jsxs(h0, {
@@ -33845,23 +33845,7 @@ You need to delete some text data from [Open] - [Local] menu.`,
                 '',
               ],
             }),
-            
             E.jsx(h0, { children: 'Enjoy writing with Writeboxes!' }),
-            E.jsxs($W, {
-              children: [
-                E.jsx(RW, { children: E.jsx(NW, { src: IW }) }),
-                E.jsxs(FW, {
-                  children: [E.jsx(LW, { children: 'shibuyak' }), E.jsx(jW, { children: 'Software Developer, Japan' })],
-                }),
-                E.jsx(zW, {
-                  children: E.jsx('a', {
-                    href: 'https://twitter.com/shibuyak25',
-                    target: '_blank',
-                    children: 'Follow',
-                  }),
-                }),
-              ],
-            }),
           ],
         }),
       }),

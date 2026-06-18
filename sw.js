@@ -1,14 +1,14 @@
 const CACHE_NAME = 'writeboxes-v1'
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/index.js',
-  '/style.css',
-  '/manifest.json',
-  '/icon/favicon.ico',
-  '/icon/icon-192.png',
-  '/icon/icon-512.png',
-  '/NotoSans-Light.ttf',
+  './',
+  './index.html',
+  './index.js',
+  './style.css',
+  './manifest.json',
+  './icon/favicon.ico',
+  './icon/icon-192.png',
+  './icon/icon-512.png',
+  './NotoSans-Light.ttf',
 ]
 
 self.addEventListener('install', (event) => {
