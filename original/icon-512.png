@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Google Analytics (gtag.js) with enhanced security measures -->
+    <!-- SECURITY NOTE: Cross-domain JavaScript inclusion from trusted Google domain -->
+    <!-- Protected by CSP policy, domain validation, and error handling -->
+    <script>
+        // Enhanced security for third-party script loading
+        (function() {
+            // Validate trusted domain before loading
+            const trustedDomain = 'www.googletagmanager.com';
+            const scriptUrl = 'https://' + trustedDomain + '/gtag/js?id=G-FGNE5YQJMK';
+            
+            // Additional security checks
+            if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+                console.warn('Analytics not loaded: insecure context');
+                return;
+            }
+            
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = scriptUrl;
+            script.crossOrigin = 'anonymous';
+            script.referrerPolicy = 'strict-origin-when-cross-origin';
+            
+            script.onerror = function() {
+                console.warn('Google Analytics script failed to load from trusted domain');
+            };
+            
+            script.onload = function() {
+                // Initialize only after successful load from trusted source
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-FGNE5YQJMK');
+            };
+            
+            document.head.appendChild(script);
+        })();
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Writebox</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple and distraction-free text editor">
+
+
+    <!-- Google APIs Client Library for File Picker -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    
+  
+    <link rel="shortcut icon" href="/icon/favicon.ico" type="image/x-icon" />
+    <script type="module" crossorigin src="/assets/index-aezdmOmq.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B3DNCiOF.css">
+  </head>
+  <body>
+    <div id="app-container" style="height: 100%;"/>
+  </body>
+  </html>

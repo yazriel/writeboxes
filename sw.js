@@ -1,13 +1,13 @@
-const CACHE_NAME = 'writeboxes-v1'
+const CACHE_NAME = 'writeboxes-v2'
 const ASSETS = [
   './',
   './index.html',
   './index.js',
   './style.css',
   './manifest.json',
-  './icon/favicon.ico',
-  './icon/icon-192.png',
-  './icon/icon-512.png',
+  './icon/favicon-v4.ico',
+  './icon/icon-192-v4.png',
+  './icon/icon-512-v4.png',
   './NotoSans-Light.ttf',
 ]
 

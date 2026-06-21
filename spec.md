@@ -127,3 +127,13 @@ This is safe because:
 - Added **Backup & Restore** to overflow menu (JSON export/import; reads localStorage directly)
 - Added **PWA support** (`manifest.json`, `sw.js`, icons) for installation on ChromeOS and other platforms
 - Moved assets to project root (`index.js`, `style.css`, `NotoSans-Light.ttf`)
+
+- improve2.ico new icon design
+- resize this and create new icon files
+- rename icon files to bypas chrome cache for PWA/taskbar icon files
+
+## Todo 
+
+- cleaner rewrite of file shortcut buttons (reload app also fixes this)
+
+
