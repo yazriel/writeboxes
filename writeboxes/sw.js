@@ -1,14 +1,14 @@
-const CACHE_NAME = 'writeboxes-v2'
+const CACHE_NAME = 'writeboxes-v1'
 const ASSETS = [
   './',
   './index.html',
   './index.js',
   './style.css',
+  './googleFilePickerServerAuth-2_WNVURq.js',
   './manifest.json',
   './icon/favicon-v4.ico',
   './icon/icon-192-v4.png',
   './icon/icon-512-v4.png',
-  './NotoSans-Light.ttf',
 ]
 
 self.addEventListener('install', (event) => {
